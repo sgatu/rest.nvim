@@ -323,7 +323,7 @@ function utils.gq_lines(lines, filetype)
         return lines, false
     end
     vim.api.nvim_buf_call(format_buf, function()
-        vim.cmd("silent normal gggqG")
+        vim.cmd("%!jq")
     end)
     local buf_lines = vim.api.nvim_buf_get_lines(format_buf, 0, -1, false)
     vim.api.nvim_buf_delete(format_buf, { force = true })
